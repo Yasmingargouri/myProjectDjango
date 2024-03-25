@@ -21,21 +21,25 @@
 
 <body>
     <div id="outer">
-        <header class="header order-last" id="tm-header">
-            <nav class="navbar">
+        <header class="header order-last" id="tm-header" style="width: 25%;">
+            <nav class="navbar" >
                 <div class="collapse navbar-collapse single-page-nav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#section-1"><span class="icn"><i class="fas fa-2x fa-air-freshener"></i></span> Our University</a>
+                            <a class="nav-link" href="#section-1"><span class="icn"><i class="fas fa-book"></i></span> University</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/signin"><span class="icn"><i class="fab fa-2x fa-battle-net"></i></span> Sign In</a>
+                            <a class="nav-link" href="#section-2"><span class="icn"><i class="fas fa-calendar-alt"></i></span> Guide</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/login"><span class="icn"><i class="far fa-2x fa-images"></i></span> Log IN</a>
+                            <a class="nav-link" href="#section-3"><span class="icn"><i class="fas fa-handshake"></i></span> Club</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#section-4"><span class="icn"><i class="far fa-2x fa-comments"></i></span> Contact</a>
+                            <a class="nav-link" href="/login"><span class="icn"><i class="fas fa-user"></i></span> LogIN /  </a><br>
+                            <a class="nav-link" href="/signin">SignIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section-4"><span class="icn"><i class="fas fa-address-book"></i></span> Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -50,14 +54,17 @@
             </span>
         </button>
         
-        <main id="content-box" class="order-first">
-            <div class="banner-section section parallax-window" data-parallax="scroll" data-image-src="{%static 'img/section-1-bg.jpg' %}" id="section-1">
+        <main id="content-box" class="order-first" style="width: 75%;">
+            <div style="background-repeat: no-repeat ;background-image: url('{% static 'img/section-1-bg.jpg' %}'); background-size:100%;">
+
+            <div class="banner-section section parallax-window"  data-parallax="scroll"  id="section-1">
                 <div class="container">
                     <div class="item">
-                        <div class="bg-blue-transparent logo-fa"><span></span> <img width="70%" src="{%static 'img/logo.png' %}"/></div>
-                        <div class="bg-blue-transparent simple"><p> !</p></div>
+                        <div class="bg-blue-transparent logo-fa"style="border-radius:20px;"><span></span> <img width="70%" src="{%static 'img/logo.png' %}"/></div>
+                        <div class="bg-blue-transparent simple"><p>Empower your journey with knowledge, where every step forward is a leap towards your dreams. Let's innovate, inspire, and ignite the future together !</p></div>
                     </div>
                 </div>
+            </div>
             </div>
         
             <section class="work-section section" id="section-2">
@@ -66,39 +73,42 @@
                         <div class="item col-md-4">
                             <div class="tm-work-item-inner">
                                 <div class="icn"><i class="fas fa-2x fa-icons"></i></div>
-                                <h3>.01 Get An Idea</h3>
-                                <p>Simply Amazed is free HTML template provided by Tooplate website. Please tell your friends about our website. Thank you.</p>
+                                <h3>.01 Events</h3>
+                                <p>Discover and dive into events tailored to your interests - post, participate, and propel your passions forward.</p>
                             </div>                        
                         </div>
                         <div class="item col-md-4 one">
                             <div class="tm-work-item-inner">
                                 <div class="icn"><i class="fas fa-2x fa-tools"></i></div>
-                                <h3>.02 Create It</h3>
-                                <p>This is a full-width CSS template with bootstrap 5, you can download, modify and use this layout for your simple CSS website.</p>
+                                <h3>.02 Clubs</h3>
+                                <p>Connect and cultivate your community by joining clubs that resonate with your aspirations and hobbies.</p>
                             </div>
                         </div>
                         <div class="item col-md-4 two">
                             <div class="tm-work-item-inner">
                                 <div class="icn"><i class="fab fa-2x fa-phoenix-framework"></i></div>
-                                <h3>.03 Execute it</h3>
-                                <p>You are allowed to use this for your personal and commerical projects, you are not allowed to redistribute the template ZIP file on any download site.</p>
+                                <h3>.03 Activities</h3>
+                                <p>Stay in the loop with ease - get timely notifications on the latest activities and never miss a beat of university life.</p>
                             </div>
                         </div>
                     </div>
                     <div class="title">
-                        <h2>Our Work</h2>
+                        <h2>Our Guide</h2>
                     </div>
                 </div>
             </section>
 
+
+            <div style="background-repeat: no-repeat ;background-image: url('{% static 'img/section-3-bg.jpg' %}'); background-size:100%;">
+
             <section class="gallery-section section parallax-window" data-parallax="scroll" data-image-src="img/section-3-bg.jpg" id="section-3">
                 <div class="container">
                     <div class="title text-right">
-                        <h2>Our Gallery</h2>
+                        <h2>Our Clubs</h2>
                     </div>
                     <div class="mx-auto gallery-slider">
                         <figure class="effect-julia item">
-                            <img src="img/gallery-img-01.jpg" alt="Image">
+                            <img src="{%static 'img/gallery-img-01.jpg'%}" alt="Image">
                             <figcaption>
                                 <div>
                                     <p>Julia dances in the deep dark</p>
@@ -107,7 +117,7 @@
                             </figcaption>
                         </figure>
                         <figure class="effect-julia item">
-                            <img src="img/gallery-img-02.jpg" alt="Image">
+                            <img src="{%static 'img/gallery-img-02.jpg'%}" alt="Image">
                             <figcaption>
                                 <div>
                                     <p>Julia dances in the deep dark</p>
@@ -115,72 +125,11 @@
                                 <a href="#">View more</a>
                             </figcaption>
                         </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-03.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-04.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-05.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-06.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-07.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-08.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
-                        <figure class="effect-julia item">
-                            <img src="img/gallery-img-09.jpg" alt="Image">
-                            <figcaption>
-                                <div>
-                                    <p>Julia dances in the deep dark</p>
-                                </div>
-                                <a href="#">View more</a>
-                            </figcaption>
-                        </figure>
+                        
                     </div>
                 </div>
             </section>
+            </div>
 
             <section class="contact-section section" id="section-4">
                 <div class="container">
@@ -246,11 +195,11 @@
             </section>
         </main>
     </div>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.singlePageNav.min.js"></script>
-    <script src="js/slick.js"></script>
-    <script src="js/parallax.min.js"></script>
-    <script src="js/templatemo-script.js"></script>
+    <!--<script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'js/jquery.singlePageNav.min.js'%}"></script>
+    <script src="{% static 'js/slick.js'%}"></script>
+    <script src="{% static 'js/parallax.min.js'%}"></script>
+    <script src="{% static 'js/templatemo-script.js'%}"></script>-->
 </body>
 </html>
