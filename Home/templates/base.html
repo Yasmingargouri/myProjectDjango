@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css'%}" type="text/css" /> 
+    
+  {% block styles %}
+  
+  <style>
+    nav{
+        background-color: #b5d2f8; 
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-nav {
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+    .nav-item {
+        margin: 0 10px; 
+    }
+    .nav-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+    .article-img {
+        margin-right: 10px; 
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-right .nav-link {
+        margin-left: 10px; 
+    }
+
+        
+.active-indicator {
+    position: absolute;
+    bottom: 5px; 
+    right: 12%;
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 50%; 
+    border: 2px solid white; 
+}
+.profile-container {
+    position: relative;
+    display: inline-block;
+    width: 100px; 
+    height: 100px;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+}
+body{
+  background-color: #cddafa;
+}
+
+  </style>
+  {% endblock %}
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <!-- Left-aligned links -->
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'Home' %}">
+                <span class="icn"><i class="fas fa-book"></i></span>Blogs
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'post_create' %}">
+                <span class="icn"><i class="fas fa-address-book"></i></span>New Blogs
+            </a>
+        </li>
+    </ul>
+    <!-- Right-aligned links -->
+    <div class="navbar-right">
+        <a class="nav-link" href="{% url 'profile' %}"><p class="active-indicator"></p>
+            <img class="rounded-circle article-img" width="40px" height="40px" src="{{ user.profile.image.url }}">
+            {{ user }}
+        </a>
+        <a class="nav-link" href="{% url 'logout' %}">
+            <span class="icn"><i class="fas fa-sign-out-alt"  ></i></span>Logout
+        </a>
+    </div>
+</nav>
+
+    
+    <div class="conteneur">
+      {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

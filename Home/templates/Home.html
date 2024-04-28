@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{message.tags}}">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endif %}
-{% block content %}{% endblock %}
-<body>
-    <h1>Welcome !!</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for post in posts%}
+    <fieldset style="border: 1px solid black; width: 30%;margin-top: 4px;margin-left: 25%;">
+    <h2><img class="rounded-circle article-img" width="40px" height="40px" src="{{ post.author.profile.image.url}}">
+        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+        <p> By {{ post.author }} on {{post.date_posted }}</p>
+        
+        <p>{{ post.content }}</p>
+    </fieldset>
+
+    {%endfor%}
+{% endblock %}

@@ -25,17 +25,17 @@
                     <a class="nav-link" href="/"><span class="icn"><i class="fas fa-book"></i></span> University</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/"><span class="icn"><i class="fas fa-calendar-alt"></i></span> Guide</a>
+                    <a class="nav-link" href="/#section-2"><span class="icn"><i class="fas fa-calendar-alt"></i></span> Guide</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/"><span class="icn"><i class="fas fa-handshake"></i></span> Club</a>
+                    <a class="nav-link" href="/#section-3"><span class="icn"><i class="fas fa-handshake"></i></span> Club</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login"><span class="icn"><i class="fas fa-user"></i></span> LogIn /  </a><br>
                     <a class="nav-link" href="/signin">SignUp</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#section-4"><span class="icn"><i class="fas fa-address-book"></i></span> Contact</a>
+                    <a class="nav-link" href="/#section-4"><span class="icn"><i class="fas fa-address-book"></i></span> Contact</a>
                 </li>
             </ul>
         </div>
@@ -46,6 +46,15 @@
 <div>
   <form method="POST">
     {% csrf_token %}
+    
+{% if messages %}
+{% for message in messages %}
+  <div class="alert alert-{{message.tags}}">
+    {{ message }}
+  </div>
+{% endfor %}
+{% endif %}
+
     <fieldset class="form_group">
         <legend >Login</legend>
         {{ form }}
@@ -57,7 +66,11 @@
   <div>
     <small>Need an account !
       <a href="/signin">Sign Up Now</a>
-    </small>
+    </small><br>
+    <!--Forgot your password ?
+        <a href="/password_reset">
+            New password
+        </a>-->
   </div>
 </div>
 

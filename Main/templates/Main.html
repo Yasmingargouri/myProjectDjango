@@ -34,12 +34,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#section-3"><span class="icn"><i class="fas fa-handshake"></i></span> Club</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login"><span class="icn"><i class="fas fa-user"></i></span> LogIn /  </a><br>
-                            <a class="nav-link" href="/signin">SignUp</a>
-                        </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="#section-4"><span class="icn"><i class="fas fa-address-book"></i></span> Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}"><span class="icn"><i class="fas fa-user"></i></span> LogIn /  </a><br>
+                            <a class="nav-link" href="{% url 'signin' %}">SignUp</a>
                         </li>
                     </ul>
                 </div>
@@ -106,28 +107,81 @@
                     <div class="title text-right">
                         <h2>Our Clubs</h2>
                     </div>
-                    <div class="mx-auto gallery-slider">
-                        <figure class="effect-julia item">
-                            <img src="{%static 'img/gallery-img-01.jpg'%}" alt="Image">
+                    <div class="mx-auto gallery-slider" >
+                        <figure class="effect-julia item" >
+                            <img src="{%static 'img/ARCI.jpg'%}" alt="Image">
                             <figcaption>
                                 <div>
-                                    <p>Julia dances in the deep dark</p>
+                                    <p>Autonomie Robotic Club Iset</p>
                                 </div>
-                                <a href="#">View more</a>
+                                <a href="/login">View more</a>
                             </figcaption>
                         </figure>
                         <figure class="effect-julia item">
-                            <img src="{%static 'img/gallery-img-02.jpg'%}" alt="Image">
+                            <img src="{%static 'img/Airo.png'%}" alt="Image">
                             <figcaption>
                                 <div>
-                                    <p>Julia dances in the deep dark</p>
+                                    <p>Airomodelisme club</p>
                                 </div>
-                                <a href="#">View more</a>
+                                <a href="/login">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="{%static 'img/MTC.jpg'%}" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Microsoft Tech Club</p>
+                                </div>
+                                <a href="/login">View more</a>
                             </figcaption>
                         </figure>
                         
+                        <figure class="effect-julia item" >
+                            <img src="{%static 'img/Ider.jpg'%}" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Ider Club</p>
+                                </div>
+                                <a href="/login">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item" >
+                            <img src="{%static 'img/ArtClub.jpg'%}" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Art Club</p>
+                                </div>
+                                <a href="/login">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="{%static 'img/RaiseUp.jpg'%}" alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Raise Up Club</p>
+                                </div>
+                                <a href="/login">View more</a>
+                            </figcaption>
+                        </figure>
+                        <figure class="effect-julia item">
+                            <img src="{%static 'img/Civil.jpg'%}"alt="Image">
+                            <figcaption>
+                                <div>
+                                    <p>Genie Civil Club</p>
+                                </div>
+                                <a href="/login">View more</a>
+                            </figcaption>
+                      
+                        </figure>
+
+                                  
+                <a href="/login" style="color: blue;">View more</a>
+                      
+                     
                     </div>
+                          
                 </div>
+                
             </section>
             </div>
 
@@ -157,7 +211,7 @@
                         </div>
                         <div class="col-lg-4 col-md-6 mb-4 contact-details">
                             <div class="tm-contact-item-inner-2">
-                                <p>Nam mollis felis elementum, placerat dolor id, vehicula libero. Etiam dui nisl, mattis ut rhoncus et, cursus ut diam.</p>
+                            
                                 <ul class="font-weight-light">
                                     <li>
                                         <span class="icn"><i class="fas fa-mobile-alt"></i></span>
@@ -165,11 +219,11 @@
                                     </li>
                                     <li>
                                         <span class="icn"><i class="fas fa-at"></i></span>
-                                        <span class="lbl">Email:</span> <a href="#">info@company.com</a>
+                                        <span class="lbl">Email:</span> <a href="#">iset@company.com</a>
                                     </li>
                                     <li>
                                         <span class="icn"><i class="fas fa-globe-asia"></i></span>
-                                        <span class="lbl">URL:</span> <a href="#">www.company.com</a>
+                                        <span class="lbl">URL:</span> <a href="https://isetsf.rnu.tn/">https://isetsf.rnu.tn/</a>
                                     </li>
                                 </ul>
                             </div>                        
@@ -178,9 +232,7 @@
                             <!-- Map -->
                             <div class="map-outer tm-mb-40">
                                 <div class="gmap-canvas">
-                                    <iframe width="100%" height="400" id="gmap-canvas"
-                                        src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                    <iframe width="100%" height="400" id="gmap-canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.935598971257!2d10.769580075208433!3d34.757215080179314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1301d2c1f3c2991f%3A0xab7f8817c80e9617!2sHigher%20Institute%20of%20Technological%20Studies%20of%20Sfax!5e0!3m2!1sen!2stn!4v1713094356459!5m2!1sen!2stn" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -188,8 +240,8 @@
                 </div>
                 <footer class="footer container container-2">
                     <div class="row"> 
-                        <p class="col-sm-7">Copyright 2021 Simply Amazed Co.</p>
-                        <p class="col-sm-5 text-right design">Design: <a rel="nofollow" href="https://www.tooplate.com" target="_parent">Tooplate</a></p>
+                        <p class="col-sm-7">copyright &copy; 2024 Yasmin<!--Instituts Supérieurs des Etudes Technologiques : Iset Sfax--></p>
+                        <p class="col-sm-5 text-right design">. All Rights Reserved .</a></p>
                     </div>
                 </footer>
             </section>
