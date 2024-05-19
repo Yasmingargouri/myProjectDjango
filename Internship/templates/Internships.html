@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<a class="nav-link" href="{% url 'intern_create' %}">
+    <span class="icn"><i class="fas fa-plus"></i></span>New Internship
+</a>
+
+<div style="border-radius: 10px; background-color: #b5d2f8; position: absolute; margin-left: 19%;  width: 50%; height: 80vh; background-attachment: fixed; overflow-y: auto; scrollbar-width: thin; scrollbar-color: darkgray transparent;">
+    {% for intern in internships %}
+    <fieldset style="border-radius: 10px; border: 1px solid rgb(78, 78, 78);width: 80%; margin-top: 4px; margin-left: 5%; margin-bottom: 10px;">
+        <img class="rounded-circle article-img" width="40px" height="40px" src="{{ intern.author.profile.image.url }}">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user_interns' intern.author.username %}">{{ intern.author }}</a>
+                <small class="text-muted">{{ intern.date_posted|date:"F d,Y"}}</small>
+            </div>
+            <h4><a class="article-title" href="{% url 'intern_detail' intern.id %}">{{ intern.title }}</a></h4>
+            <p class="article-content">{{ intern.content }}</p>
+        </div>
+    </fieldset>
+    {% endfor %}
+
+
+    {% if is_paginated %}   
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range  %}
+            {% if page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}"> {{ num }}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+        {% endif %}
+    {% endif %}
+
+
+</div>
+
+
+<div style="border-radius: 10px; background-color: #b5d2f8; position: absolute; border: 2px solid gray; margin-left: 72%; margin-top: 0; box-shadow: 4px 4px 4px; width: 25%; height: 80vh; background-attachment: fixed; overflow-y: auto; scrollbar-width: thin; scrollbar-color: darkgray transparent;" >
+    {% for entreprise in entreprises %}
+    <fieldset style="border-bottom: 2px solid black; width: 80%; margin-top: 4px; margin-left: 5%; margin-bottom: 10px;">
+        <h2><img class="rounded-circle article-img" width="40px" height="40px" src="{{ entreprise.image.url }}">
+            <a href="{% url 'entreprise_detail' entreprise.id %}">{{ entreprise.name }}</a></h2>
+            <p>{{ entreprise.fullName }}</p>
+        <p> {{ entreprise.description }}</p>
+        
+    </fieldset>
+    {% endfor %}
+</div>
+{% endblock %}

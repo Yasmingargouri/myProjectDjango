@@ -18,10 +18,68 @@
   <link rel="stylesheet" href="{% static 'css/slick.css" type="text/css'%}" />   
   <link rel="stylesheet" href="{% static 'css/tooplate-simply-amazed.css'%}" type="text/css" />
 
+  <style>
+    .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-right: 500px;
+}
+
+.form-container form {max-width: 1000px; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.alert {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+
+
 </head>
 <body>
   
-{% block content %}
 <div>
   <header class="header order-last" id="tm-header" style="width: 25%;">
     <nav class="navbar" >
@@ -47,13 +105,13 @@
         </div>
     </nav>
 </header>
-
-
+{% block content %}
+<div class="form-container">
   <form method="POST">
     {% csrf_token %}
     <fieldset class="form_group">
-        <legend >Join Today</legend>
-        {{ form }}
+      <legend>Join Today</legend>
+      {{ form }}
     </fieldset>
     <div>
       <button type="submit">Sign Up</button>
@@ -65,8 +123,8 @@
     </small>
   </div>
 </div>
-
 {% endblock content %}
+
   
 </body>
 </html>

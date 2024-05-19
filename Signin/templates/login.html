@@ -14,6 +14,64 @@
   <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css'%}" type="text/css" /> 
   <link rel="stylesheet" href="{% static 'css/slick.css" type="text/css'%}" />   
   <link rel="stylesheet" href="{% static 'css/tooplate-simply-amazed.css'%}" type="text/css" />
+  <style>
+    .form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-right: 500px;
+}
+
+.form-container form {
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.alert {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+  </style>
 
 </head>
 <body>
@@ -41,23 +99,22 @@
         </div>
     </nav>
 </header>
-
 {% block content %}
-<div>
+<div class="form-container">
   <form method="POST">
     {% csrf_token %}
     
-{% if messages %}
-{% for message in messages %}
-  <div class="alert alert-{{message.tags}}">
-    {{ message }}
-  </div>
-{% endfor %}
-{% endif %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
 
-    <fieldset class="form_group">
-        <legend >Login</legend>
-        {{ form }}
+    <fieldset class="form-group">
+      <legend>Login</legend>
+      {{ form }}
     </fieldset>
     <div>
       <button type="submit">Login</button>
@@ -67,14 +124,14 @@
     <small>Need an account !
       <a href="/signin">Sign Up Now</a>
     </small><br>
-    <!--Forgot your password ?
-        <a href="/password_reset">
-            New password
-        </a>-->
+    Forgot your password ?
+    <a href="{% url 'password_reset' %}">
+      New password
+    </a>
   </div>
 </div>
-
 {% endblock content %}
+
   
 </body>
 </html>

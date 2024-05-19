@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}'s Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        /* Existing styles remain unchanged */
+    </style>
+</head>
+<body>
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+        <div class="card p-4">
+            <div class="image d-flex flex-column justify-content-center align-items-center">
+                <!-- Assuming you have a profile picture in a related Profile model -->
+                <button class="btn btn-secondary">
+                    <img src="{{ user.profile.image.url }}" height="100" width="100" alt="Profile Image" />
+                </button>
+                <span class="name mt-3">{{ user.get_full_name }}</span>
+                <span class="idd">{{ user.username }}</span>
+                <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                    <span class="idd1">ID: {{ user.id }}</span>
+                    <span><i class="fa fa-copy"></i></span>
+                </div>
+                <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+                    <span class="number">{{ user.profile.followers.count }} <span class="follow">Followers</span></span>
+                </div>
+                <div class="d-flex mt-2">
+                    <button class="btn1 btn-dark">Follow</button>
+                </div>
+                <div class="text mt-3">
+                    <span>{{ user.profile.description }}</span>
+                </div>
+                <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
+                    <!-- Social icons can be linked here -->
+                    <span><i class="fa fa-twitter"></i></span>
+                    <span><i class="fa fa-facebook-f"></i></span>
+                    <span><i class="fa fa-instagram"></i></span>
+                    <span><i class="fa fa-linkedin"></i></span>
+                </div>
+                <div class="px-2 rounded mt-4 date">
+                    <span class="join">Joined {{ user.date_joined|date:"F, Y" }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

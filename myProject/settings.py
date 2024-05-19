@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'Signin',
     'Home',
     'Main',
+    'Events',
+    'Internship'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'Home'
 LOGIN_URL= 'login'
+
+# settings.py
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

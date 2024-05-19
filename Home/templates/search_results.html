@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* CSS is now scoped only to this template */
+    .user-list {
+        list-style: none;
+        padding: 0;
+    }
+    .user-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+    }
+    .user-item a {
+        text-decoration: none;
+        color: #333;
+        display: flex;
+        align-items: center;
+    }
+    .user-item img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    .user-item:hover {
+        background-color: #e2e2e2;
+    }
+    .no-results {
+        color: #888;
+        font-style: italic;
+    }
+</style>
+<h2>Search Results</h2>
+{% if users %}
+    <ul class="user-list">
+        {% for user in users %}
+            <li class="user-item">
+                <a href="{% url 'profile_page' username=user.username %}">
+                    <!-- Ensure the user.profile.image.url is correctly referenced -->
+                    <img src="{{ user.profile.image.url }}" alt="Profile Picture">
+                    {{ user.username }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="no-results">No users found matching your query. Please try again.</p>
+{% endif %}
+{% if error %}
+    <p class="no-results">{{ error }}</p>
+{% endif %}
+{% endblock %}
