@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
- 
+<div style="text-align: center; border: 1px solid black;box-shadow: 4px 4px 4px;margin-top: 70px;margin-left: 15%;width: 70%;border-radius: 10px;">
+    
     <h1><img class="rounded-circle article-img" width="40px" height="40px" src="{{ object.author.profile.image.url}}">
         {{ object.title }}</h1>
     <p> By {{ object.author }} on {{object.date_posted }}</p>
@@ -10,6 +11,6 @@
     {% if object.author == user %}
         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'intern_update' object.id %}">Update</a>
         <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'intern_delete' object.id %}">Delete</a>
-    {%endif%}  
+    {%endif%}  </div>
 
 {% endblock %}
